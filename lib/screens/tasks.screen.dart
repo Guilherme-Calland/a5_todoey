@@ -30,7 +30,7 @@ class TasksScreen extends StatelessWidget {
             Guilherme()
           ],
         ),
-      )
+      ),
     );
   }
 }

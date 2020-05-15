@@ -16,13 +16,13 @@ class TasksScreen extends StatelessWidget {
               topLeft: Radius.circular(20),
               topRight: Radius.circular(20)
             ),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(0.5),
-                spreadRadius: 5,
-                blurRadius: 7,
-              ),
-            ],
+            // boxShadow: [
+            //   BoxShadow(
+            //     color: Colors.grey.withOpacity(0.5),
+            //     spreadRadius: 5,
+            //     blurRadius: 7,
+            //   ),
+            // ],
           ),
         child: Column(
           children: <Widget>[

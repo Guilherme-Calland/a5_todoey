@@ -20,44 +20,44 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: todoeyTheme,
         child: Icon(Icons.add),
         onPressed: (){
-          showModalBottomSheet(
-            context: context, 
-            builder: (BuildContext context){
-              return SingleChildScrollView(
-                padding: EdgeInsets.only(
-                bottom: MediaQuery.of(context).viewInsets.bottom),
-                child: Container(
-                  color: Color(0xff757575),
-                  child: Container(
-                    padding: EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                      border: Border.all(color: todoeyTheme),
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(20),
-                        topRight: Radius.circular(20)
-                      ),
-                      color: todoeyTheme,
-                      
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        Text(
-                          'Add Task',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 30,
-                            fontWeight: FontWeight.w900
-                          )
-                        )
-                      ],
-                    )
-                  ),
-                )
-              );
+          Navigator.of(context).push(PageRouteBuilder(
+            opaque: false,
+            pageBuilder: (BuildContext context, _, __){
+              return AddTaskScreen();
             }
-          );
-        },
+          ));
+        }
+      ),
+    );
+  }
+}
+
+class AddTaskScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Material(
+        color: todoeyTheme,
+        borderRadius: BorderRadius.all(
+          Radius.circular(40)
+        ),
+        elevation: 5,
+        shadowColor: Colors.grey,
+        child: Padding(
+          padding: const EdgeInsets.all(40.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                'Add Task',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w400
+                ),)
+            ],
+          )
+        ),
       ),
     );
   }

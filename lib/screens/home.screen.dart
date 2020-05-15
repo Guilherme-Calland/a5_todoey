@@ -16,7 +16,24 @@ class HomeScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           TitleScreen(),
-          TasksScreen()
+          TasksScreen(),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 50),
+            height: 150,
+            width: 500,
+            color: Colors.white,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Transform.scale(
+                  scale: 3,
+                  child: Image.asset(
+                    'images/gui.right.png',
+                  ),
+                ),
+              ],
+            ),
+          )
         ],
       )
     );

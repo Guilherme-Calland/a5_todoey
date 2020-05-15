@@ -1,42 +1,38 @@
 import 'package:a5_todoey/resources/resources.dart';
-import 'package:a5_todoey/widgets/todoey.list.dart';
+import 'package:a5_todoey/widgets/guilherme.dart';
+import 'package:a5_todoey/widgets/todoey.listview.dart';
 import 'package:flutter/material.dart';
 
 class TasksScreen extends StatelessWidget {
-  
-  List < String > tasks = [
-    'do the dishes',
-    'buy some cheese',
-    'conquer the world'
-  ];
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 25),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(20),
-            topRight: Radius.circular(20)
-          )
-        ),
-        child: ListView.builder(
-          itemCount: tasks.length,
-          itemBuilder: (context, index){
-            return ListTile(
-              trailing: Checkbox(
-                activeColor: todoeyTheme,
-                value: false,
-                onChanged: (bool newValue){}, 
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20)
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.5),
+                spreadRadius: 5,
+                blurRadius: 7,
               ),
-              title: Text(tasks[index])
-            );
-          }
-        )
+            ],
+          ),
+        child: Column(
+          children: <Widget>[
+            TodoeyListView(),
+            Guilherme()
+          ],
+        ),
       )
     );
   }
 }
+
 

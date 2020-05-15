@@ -36,22 +36,20 @@ class TodoeyListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: SingleChildScrollView(
-        child: ListView.builder(
-          shrinkWrap: true,
-          scrollDirection: Axis.vertical,
-          itemCount: tasks.length,
-          itemBuilder: (context, index){
-            return ListTile(
-              trailing: Checkbox(
-                activeColor: todoeyTheme,
-                value: false,
-                onChanged: (bool newValue){}, 
-              ),
-              title: Text(tasks[index])
-            );
-          }
-        ),
+      child: ListView.builder(
+        shrinkWrap: true,
+        scrollDirection: Axis.vertical,
+        itemCount: tasks.length,
+        itemBuilder: (context, index){
+          return ListTile(
+            trailing: Checkbox(
+              activeColor: todoeyTheme,
+              value: false,
+              onChanged: (bool newValue){}, 
+            ),
+            title: Text(tasks[index])
+          );
+        }
       ),
     );
   }

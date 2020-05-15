@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter/material.dart';
-const Color todoeyBackground = Color(0xffceb1ff);
+const Color lightPurple = Color(0xffceb1ff);
+const Color purple = Colors.purple;
+const Color todoeyTheme = lightPurple;
 

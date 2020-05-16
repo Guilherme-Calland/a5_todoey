@@ -24,6 +24,9 @@ class TodoeyListView extends StatelessWidget {
                 toogleCheckBox: (bool value){
                   data.toggleCheckBox(task);
                 },
+                onLongPress: (){
+                  data.deleteTask(task);
+                }
               );
             }
           ),

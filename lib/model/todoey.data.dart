@@ -23,4 +23,9 @@ class TodoeyData extends ChangeNotifier{
     notifyListeners();
   }
 
+  deleteTask(Task task){
+    tasks.remove(task);
+    notifyListeners();
+  }
+
 }

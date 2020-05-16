@@ -11,7 +11,7 @@ class AddTaskScreen extends StatelessWidget {
   final GlobalKey<AnimatorWidgetState> slideInUpKey =
   GlobalKey<AnimatorWidgetState>();
 
-  String newTask;
+  String newTask = '';
 
   @override
   Widget build(BuildContext context) {
@@ -66,34 +66,36 @@ class AddTaskScreen extends StatelessWidget {
                         focusedBorder: UnderlineInputBorder(
                           borderSide: BorderSide(color: todoeyTheme),
                         ),
-                        // border: UnderlineInputBorder(
-                        //   borderSide: BorderSide(color: todoeyTheme),
-                        // ),
                       ),
                       onChanged: (newValue){
                         newTask = newValue;
+                      },
+                      onTap: (){
+                        Provider.of<TodoeyData>(context, listen: false)
+                        .toggleImageOff();
                       },
                     ),
                     SizedBox(
                       height: 20,
                     ),
-                    Consumer<TodoeyData>(
-                      builder: (context, data, child){
-                        return FlatButton(
-                          color: todoeyTheme,
-                          padding: EdgeInsets.all(5),
-                          child: Text(
-                            'Add',
-                            style: TextStyle(
-                              color: Colors.white
-                            )
-                          ),
-                          onPressed: (){
-                            data.addTask(Task(name: newTask));
-                            Navigator.pop(context);
-                          },
-                        );
-                      }
+                    FlatButton(
+                      color: todoeyTheme,
+                      padding: EdgeInsets.all(5),
+                      child: Text(
+                        'Add',
+                        style: TextStyle(
+                          color: Colors.white
+                        )
+                      ),
+                      onPressed: (){
+                        Provider.of<TodoeyData>(context, listen: false)
+                        .addTask(Task(name: newTask));
+                        
+                        Provider.of<TodoeyData>(context, listen: false)
+                        .toggleImageOn();
+
+                        Navigator.pop(context);
+                      },
                     )
                   ],
                 )

@@ -9,6 +9,8 @@ class TodoeyData extends ChangeNotifier{
     Task(name: 'conquer the world')
   ];
 
+  String imageUrl = 'images/gui.right.png';
+
   int get tasksLength{
     return tasks.length;
   }
@@ -18,14 +20,26 @@ class TodoeyData extends ChangeNotifier{
     notifyListeners();
   }
 
+  deleteTask(Task task){
+    tasks.remove(task);
+    notifyListeners();
+  }
+
   toggleCheckBox(Task task){
     task.isDone = !task.isDone;
     notifyListeners();
   }
 
-  deleteTask(Task task){
-    tasks.remove(task);
+  toggleImageOff(){
+    imageUrl = '';
     notifyListeners();
   }
+
+  toggleImageOn(){
+    imageUrl = 'images/gui.right.png';
+  }
+
+
+
 
 }

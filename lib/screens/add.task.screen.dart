@@ -53,6 +53,7 @@ class AddTaskScreen extends StatelessWidget {
                       style: TextStyle(
                         color: Colors.black,
                       ),
+                      keyboardType: TextInputType.visiblePassword,
                       decoration: InputDecoration(   
                         enabledBorder: UnderlineInputBorder(      
                           borderSide: BorderSide(color: todoeyTheme),   
@@ -60,10 +61,11 @@ class AddTaskScreen extends StatelessWidget {
                         focusedBorder: UnderlineInputBorder(
                           borderSide: BorderSide(color: todoeyTheme),
                         ),
-                        border: UnderlineInputBorder(
-                          borderSide: BorderSide(color: todoeyTheme),
-                        ),
-                      )
+                        // border: UnderlineInputBorder(
+                        //   borderSide: BorderSide(color: todoeyTheme),
+                        // ),
+                      ),
+                      onChanged: (newValue){},
                     ),
                     SizedBox(
                       height: 20,

@@ -9,11 +9,8 @@ class Guilherme extends StatelessWidget {
   Widget build(BuildContext context) {
     return Transform.translate(
       offset: Offset(-150,-50),
-      child: Transform.scale(
-        scale: 2,
-        child: Image.asset(
-          'images/gui.right.png',
-        ),
+      child: Image.asset(
+        'images/gui.right.png',
       ),
     );
   }

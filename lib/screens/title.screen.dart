@@ -1,5 +1,7 @@
+import 'package:a5_todoey/model/todoey.data.dart';
 import 'package:a5_todoey/resources/resources.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 
 class TitleScreen extends StatelessWidget {
@@ -34,12 +36,16 @@ class TitleScreen extends StatelessWidget {
             )
           ),
           SizedBox(height : 10),
-          Text(
-            '3 Tasks',
-            style: TextStyle(
-              color:Colors.white,
-              fontSize: 20
-            )
+          Consumer<TodoeyData>(
+            builder: (context, data, child){
+              return Text(
+                '${data.tasksLength} Tasks',
+                style: TextStyle(
+                  color:Colors.white,
+                  fontSize: 20
+                )
+              );
+            }
           )
         ],
       ),

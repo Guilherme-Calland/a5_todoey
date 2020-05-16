@@ -1,12 +1,17 @@
+import 'package:a5_todoey/model/task.dart';
+import 'package:a5_todoey/model/todoey.data.dart';
 import 'package:a5_todoey/resources/resources.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animator/widgets/animator_widget.dart';
 import 'package:flutter_animator/widgets/sliding_entrances/slide_in_up.dart';
+import 'package:provider/provider.dart';
 
 class AddTaskScreen extends StatelessWidget {
 
   final GlobalKey<AnimatorWidgetState> slideInUpKey =
   GlobalKey<AnimatorWidgetState>();
+
+  String newTask;
 
   @override
   Widget build(BuildContext context) {
@@ -65,21 +70,30 @@ class AddTaskScreen extends StatelessWidget {
                         //   borderSide: BorderSide(color: todoeyTheme),
                         // ),
                       ),
-                      onChanged: (newValue){},
+                      onChanged: (newValue){
+                        newTask = newValue;
+                      },
                     ),
                     SizedBox(
                       height: 20,
                     ),
-                    FlatButton(
-                      color: todoeyTheme,
-                      padding: EdgeInsets.all(5),
-                      child: Text(
-                        'Add',
-                        style: TextStyle(
-                          color: Colors.white
-                        )
-                      ),
-                      onPressed: (){},
+                    Consumer<TodoeyData>(
+                      builder: (context, data, child){
+                        return FlatButton(
+                          color: todoeyTheme,
+                          padding: EdgeInsets.all(5),
+                          child: Text(
+                            'Add',
+                            style: TextStyle(
+                              color: Colors.white
+                            )
+                          ),
+                          onPressed: (){
+                            data.addTask(Task(name: newTask));
+                            Navigator.pop(context);
+                          },
+                        );
+                      }
                     )
                   ],
                 )

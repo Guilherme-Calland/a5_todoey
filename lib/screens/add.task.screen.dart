@@ -92,7 +92,7 @@ class AddTaskScreen extends StatelessWidget {
                         .addTask(Task(name: newTask));
                         
                         Provider.of<TodoeyData>(context, listen: false)
-                        .toggleImageOn();
+                        .resetImage();
 
                         Navigator.pop(context);
                       },

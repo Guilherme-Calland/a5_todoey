@@ -22,6 +22,7 @@ class TodoeyData extends ChangeNotifier{
 
   deleteTask(Task task){
     tasks.remove(task);
+    resetImage();
     notifyListeners();
   }
 
@@ -35,10 +36,15 @@ class TodoeyData extends ChangeNotifier{
     notifyListeners();
   }
 
-  toggleImageOn(){
+  resetImage(){
     imageUrl = 'images/gui.right.png';
+    notifyListeners();
   }
 
+  thumbsUp(){
+    imageUrl = 'images/gui.right.thumbsUp.png';
+    notifyListeners();
+  }
 
 
 

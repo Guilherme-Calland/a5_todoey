@@ -23,6 +23,8 @@ class TodoeyListView extends StatelessWidget {
                 isChecked: task.isDone,
                 toogleCheckBox: (bool value){
                   data.toggleCheckBox(task);
+                  task.isDone ?
+                  data.thumbsUp() : data.resetImage();
                 },
                 onLongPress: (){
                   data.deleteTask(task);

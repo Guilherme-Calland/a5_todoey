@@ -16,6 +16,7 @@ class Todoey extends StatelessWidget {
       child: MaterialApp(
         theme: ThemeData(
           cursorColor: todoeyTheme,
+          primarySwatch: Colors.purple
         ),
         debugShowCheckedModeBanner: false,
         home: HomeScreen(),
